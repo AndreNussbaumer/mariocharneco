@@ -23,6 +23,8 @@ a {
   flex-flow: column nowrap;
   justify-content: flex-start;
   margin: 0px;
+  align-items: center;
+  text-align: center;
 
 }
 
@@ -92,7 +94,6 @@ a {
   font-weight: 800;
   font-family: 'Open Sans', sans-serif;
   top: 170px;
-  padding-left: 90px;
   color: white;
   text-align:center;
   align-items: center;
@@ -141,10 +142,12 @@ a {
 }
 
 #midRow {
-  margin-left: 160px;
+  margin-left: 100px;
+  margin-right: 30px;
 }
 
 #leftRow {
+
   width: 530px;
 }
 
