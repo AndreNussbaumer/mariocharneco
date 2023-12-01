@@ -20,12 +20,16 @@
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Open+Sans:wght@300&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
   <body>
-    <div class="bg">
       <div class="nav" id="navbar">
          <div class="logo">
            <a href="index.html">
              <img id="logoMarinho" src="imgs/logo.png"/>
            </a>
+           <div id="iconBg" onClick="openMenu()">
+             <div id="icon"></div>
+             <div id="icon"></div>
+             <div id="icon"></div>
+           </div>
           </div>
           <div class="links">
             <p id="links-text">
@@ -35,7 +39,7 @@
               <a id="história" class="thirdLink">HISTÓRIA</a>
               <a id="contacts"class="fourthLink">CONTACTOS</a>
               <span class="social-media">
-                <i class="fa-brands fa-youtube fa-xl" style="color: #ffffff;"></i>
+                <i class="fa-brands fa-youtube fa-xl"></i>
                 <a href="https://www.instagram.com/charneco_ssjewelry/?hl=en" target="_blank"<i class="fa-brands fa-instagram fa-xl"></i></a>
                 <i class="fa-brands fa-facebook fa-xl"></i>
                 <i class="fa-brands fa-whatsapp fa-xl"></i>
@@ -43,57 +47,25 @@
             </p>
           </div>
       </div>
-      <div class="banner">
-        <div id="leftRow">
-          <p id="edicao">
-          <span id="bannerText1">DREAM</span>
-          </p>
-          <p id="edicao">
-          <span id="bannerText1">-</span>
-          </p>
-          <p id="limitada">
-          <span id="bannerText"><b>
-            Cada pulseira é uma obra de arte única, tecida com fios resistentes,
-            forjada no inferno Alentejano, num estilo único que reflete a essencia tradicional Alentejana
-            pelo trabalho manual.
-          </b></span>
-          </p>
-          <p id="assinatura">
-          <span id="bannerText"><b>
-            <i>Mário Charneco</i>
-          </b></span>
-          </p>
+      <div id="slideMenu">
+          <div id="menu-content">
+            <a href="#">SOBRE</a>
+            <a href="#">SERVIÇOS</a>
+            <a href="#">CLIENTES</a>
+            <a href="#">CONTACTOS</a>
+          </div>
+      </div>
+      <section class="banner">
+        <div class="slider-wrapper">
+          <div class="slider" id="carousel">
+              <video id="slide-1" src="imgs/banner.mp4" type="video/mp4" width="1920" height="400" autoplay muted loop/>
+              <img id="slide-2" src="imgs/banner1.jpg"/>
+              <img id="slide-3" src="imgs/banner.jpg"/>
+          </div>
         </div>
-
-        <div id="midRow">
-        <!--  <img id="frontal" src="imgs/frontal.png" />-->
-          <img id="horizontal" src="imgs/pulseira.png" />
-        </div>
-
-        <div id="rightRow">
-          <div id="box">
-            <p id="boxText">
-              <b>AJUSTÁVEL</b>
-            </p>
-          </div>
-          <div id="box">
-            <p id="boxText">
-              <b>FLÉXIVEL</b>
-            </p>
-          </div>
-          <div id="box">
-            <p id="boxText">
-              <b>DURÁVEL</b>
-            </p>
-          </div>
-          <a href="">
-          <div id="boxPreço">
-            <p id="preço">
-              <b>30€</b>
-            </p>
-          </div>
-          </a>
-        </div>
+      </section>
+      <div class="bannerMobile">
+        <video src="imgs/mobile.mp4" type="video/mp4" width="400" height="600" autoplay muted loop/>
       </div>
       <div class="products">
         <div id="productBox">
@@ -105,37 +77,6 @@
         <div id="productBox">
         </div>
       </div>
-    </div>
-    <div class="footer">
-      <div id="livro">
-        <img id="livroMobile" src="imgs/livro.png" />
-      </div>
-
-      <div id="reviews">
-        <p id="reviewName">
-          <b>Pedro Brito</b>
-        </p>
-        <p id="">
-          <i>Estou muito contente com a pulseira que comprei!</i>
-        </p>
-        <p id="">
-          <i class="fa-solid fa-star" style="color: #f8c90c;"></i> <i class="fa-solid fa-star" style="color: #f8c90c;"></i> <i class="fa-solid fa-star" style="color: #f8c90c;"></i> <i class="fa-solid fa-star" style="color: #f8c90c;"></i> <i class="fa-solid fa-star" style="color: #f8c90c;"></i>
-        </p>
-      </div>
-      <div id="morada">
-        <p id="">
-          Mário Charneco
-        </p>
-        <p id="">
-          Número de Telefone
-        </p>
-        <p id="">
-          Morada
-        </p>
-      </div>
-
-    </div>
-    <hr>
     <div id="copyright">
       <p id="copyrighttext">
         © <i><b><span id="copyrightspan">MÁRIO CHARNECO</span></b></i> 2023
