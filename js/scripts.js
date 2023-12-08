@@ -71,13 +71,41 @@ const firstImg = document.getElementById("slide-1")
 const secondImg = document.getElementById("slide-2")
 const thirdImg = document.getElementById("slide-3")
 
+const introText = document.getElementById("introdução")
+const introBg = document.getElementById("bgIntro")
+
+window.addEventListener("scroll", (e) => {
+
+  posY = window.scrollY
+  introText.style.opacity = posY / 4 + '%'
+
+  if(posY < 350){
+    introText.style.height = posY + 'px'
+  } else {
+    introText.style.height = '350px'
+  }
+
+  let value = posY / 80
+
+  if(value > 5){
+    value = 5
+  } else {
+    value = posY / 80
+  }
+
+  introText.style.clipPath = 'polygon(0%' + value + '%, 100% 0%, 100% 100%, 0% 100%)'
+  introBg.style.clipPath = 'polygon(0%' + value + '%, 100% 0%, 100% 100%, 0% 100%)'
+
+
+
+})
+
 let pos = {
 
   left: 0,
   x: 0
 
 }
-
 
 document.getElementById("carousel").addEventListener("mousedown", (e) => {
 
