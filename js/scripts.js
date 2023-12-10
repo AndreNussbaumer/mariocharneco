@@ -29,7 +29,6 @@ window.addEventListener('scroll', function(e) {
       document.querySelector(".social-media").style.top = "50px";
     }
   }
-
 })
 
 // function has to be separated because the listener is listening to when it's scrolled, but not when page refreshes, so it needs a function that loads the y position when refreshing
@@ -74,6 +73,21 @@ const thirdImg = document.getElementById("slide-3")
 const introText = document.getElementById("introdução")
 const introBg = document.getElementById("bgIntro")
 
+const products = document.querySelector('.products')
+
+const boxes = products.querySelectorAll('#productBox')
+
+const box = document.getElementById("productBox")
+
+const mobileBgIntro = document.getElementById("bgIntroMobile")
+const introBgText = document.getElementById("introBgText")
+
+/*
+boxes.forEach(box => {
+  console.log(window.getComputedStyle(box).getPropertyValue('opacity'))
+})
+
+*/
 window.addEventListener("scroll", (e) => {
 
   posY = window.scrollY
@@ -85,6 +99,7 @@ window.addEventListener("scroll", (e) => {
     introText.style.height = '350px'
   }
 
+
   let value = posY / 80
 
   if(value > 5){
@@ -95,6 +110,101 @@ window.addEventListener("scroll", (e) => {
 
   introText.style.clipPath = 'polygon(0%' + value + '%, 100% 0%, 100% 100%, 0% 100%)'
   introBg.style.clipPath = 'polygon(0%' + value + '%, 100% 0%, 100% 100%, 0% 100%)'
+
+
+  let xCenter = screen.width / 2
+  let yCenter = screen.height / 3
+
+  let divs = []
+
+  boxes.forEach((box, index) => {
+    /*divs.push(box.getBoundingClientRect())
+    console.log(window.getComputedStyle(focusElement).getPropertyValue('transform'))
+    window.getComputedStyle(focusElement).setProperty('transform', 'matrix(1.03, 0, 0, 1.03, 0, 0)')*/
+    divs.push(box)
+  })
+
+  // A way to know the scroll is in the middle and focus the middle objecto
+
+  for(let i = 0 ; i < divs.length; i++) {
+
+    let focusElement = divs[i]
+    let pos = focusElement.getBoundingClientRect()
+    let topBound = pos.top / focusElement.clientHeight * 100
+    let bottomBound = pos.bottom / focusElement.clientHeight * 100
+    let middle = (topBound + bottomBound) / 2
+
+    if(Math.round(middle) > yCenter - 45 && Math.round(middle) < yCenter + 5){
+      focusElement.style.setProperty('transform', 'matrix(1.05, 0, 0, 1.05, 0, 0)')
+    } else {
+      focusElement.style.setProperty('transform', 'matrix(1.00, 0, 0, 1.00, 0, 0)')
+    }
+  }
+
+  // Trying a different way using IntersectionObserver API for a more precise focusing
+
+  let numSteps = 20
+
+  let ratio
+
+  let textElement
+  let prevRatio = 0.0
+  let increasingOpacity = "ratio"
+  let decreasingOpacity = "ratio"
+
+  window.addEventListener("load", (event) => {
+    textElement = document.querySelector("#introBgText")
+    createObserver()
+  }, false)
+
+  function createObserver() {
+
+    let observer;
+
+    let options = {
+      root: null,
+      rootMargin: "0px",
+      threshold: buildThresholdList(),
+    }
+
+    observer = new IntersectionObserver(handleIntersect, options)
+    observer.observe(textElement)
+
+  }
+
+  function buildThresholdList() {
+    let thresholds = []
+    let numSteps = 20
+
+    for (let i = 1; i <= numSteps; i++) {
+      let ratio = i / numSteps
+      thresholds.push(ratio)
+    }
+
+    thresholds.push(0);
+    return thresholds;
+  }
+
+  function handleIntersect(entries, observer) {
+    entries.forEach((entry) => {
+      if (entry.intersectionRatio > prevRatio) {
+        entry.target.style.setProperty('opacity', entry.intersectionRatio)
+
+      } else {
+        entry.target.style.setProperty('opacity', -entry.intersectionRatio)
+      }
+
+      prevRatio = entry.intersectionRatio;
+    })
+  }
+
+  if(mobile){
+    if(posY > 1) {
+      document.getElementById("navbar").style.height = "60px";
+    } else {
+      document.getElementById("navbar").style.height = "100px";
+    }
+  }
 
 
 

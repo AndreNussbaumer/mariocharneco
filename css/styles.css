@@ -15,8 +15,10 @@ a {
 }
 
 hr {
-  color: rgba(255, 255, 255, 0.1);
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.1);
   margin: 0;
+  border: 0;
 }
 
 .nav {
@@ -43,6 +45,10 @@ hr {
 #logoMarinho {
   width: 90%;
   transition: 1s;
+}
+
+#logoText {
+  display: none;
 }
 
 .links {
@@ -81,7 +87,7 @@ hr {
 }
 
 .banner {
-  width: 1920px;
+  width: 100%;
   cursor: pointer;
 }
 
@@ -201,6 +207,10 @@ hr {
   height: 400px;
 }
 
+#bgIntroMobile {
+  display: none;
+}
+
 #introdução {
   display: flex;
   flex-flow: column;
@@ -243,8 +253,8 @@ hr {
   display: flex;
   color: white;
   text-align: center;
-  height: 200px;
-  padding-bottom: 40px;
+  height: 100px;
+  padding-top: 0px;
   align-items: center;
 }
 
@@ -254,18 +264,20 @@ hr {
 
 #footer {
   display: flex;
-  align-items: center;
+  flex-flow: row;
   text-align: center;
   justify-content: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 #payment {
   display: flex;
   flex-flow: column;
   color: white;
-  padding-top: 20px;
   align-items: center;
   text-align: center;
+  margin-right: 50px;
 }
 
 #metodos {
@@ -278,6 +290,77 @@ hr {
 .pay {
   padding: 10px;
 }
+
+#parceiros {
+  display: flex;
+  flex-flow: column;
+  color: white;
+  align-items: center;
+  text-align: center;
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+  margin-right: 50px;
+  padding-right: 50px;
+}
+
+#brands {
+  display: flex;
+  margin: 10px;
+}
+
+#livro {
+  display: flex;
+  flex-flow: column;
+  color: white;
+  align-items: center;
+  text-align: center;
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+  margin-right: 50px;
+  padding-right: 50px;
+}
+
+#reclamar {
+  display: flex;
+  margin: 10px;
+}
+
+#rw {
+  width: 150px;
+  opacity: 70%;
+}
+
+#rw:hover {
+  opacity: 100%;
+}
+
+#livrorec {
+  width: 250px;
+  opacity: 80%;
+}
+
+#livrorec:hover {
+  opacity: 100%;
+}
+
+
+#contactos {
+  display: flex;
+  flex-flow: column;
+  color: white;
+  align-items: center;
+  text-align: center;
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+  margin-right: 50px;
+  padding-right: 50px;
+}
+
+#numeros {
+  display: flex;
+  flex-flow: column;
+  margin-top: 0;
+  padding-top: 0;
+  line-height: 0;
+}
+
 
 /* FILTERS & ANIMATIONS */
 
@@ -324,7 +407,7 @@ hr {
 
   #icon {
     display: flex;
-    width: 35px;
+    width: 30px;
     height: 2px;
     background-color: rgba(255, 255, 255, 0.9);
     border-radius: 5px;
@@ -332,9 +415,9 @@ hr {
   }
 
   #iconBg {
-    padding-top: 5px;
+    padding-left: 20px;
     position: relative;
-    margin-left: 70px;
+    margin-left: 20px;
   }
 
   /* SLIDE MENU */
@@ -377,11 +460,11 @@ hr {
     color: white;
   }
 
-
   /* SLIDE MENU */
 
-
   .nav {
+    position: sticky;
+    top: 0;
     display: flex;
     transition: 1s;
     color: white;
@@ -390,12 +473,13 @@ hr {
     text-align: center;
     justify-content: center;
     border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    height: 100px;
   }
 
   .logo {
     display: flex;
     position: relative;
-    padding-left: 90px;
+    padding-left: 30px;
   }
 
   #featured {
@@ -408,8 +492,12 @@ hr {
   }
 
   #logoMarinho {
+    display: none;
+
+  }
+
+  #logoText {
     display: flex;
-    width: 100%;
   }
 
   .links {
@@ -418,14 +506,37 @@ hr {
 
   .banner {
     display: none;
+  }
 
+  #bannerText {
+    color: white;
+    font-size: 30pt;
+    font-weight: 800;
+    height: 10px;
+  }
+
+  #ft {
+    padding-top: 10px;
+    color: white;
+  }
+
+  #comprar {
+    display: flex;
+    color: white;
+    background-color: #ff2212;
+    width: 110px;
+    justify-content: center;
+    border-radius: 2px;
+  }
+
+  #pulseira {
+    width: 100%;
   }
 
   .bannerMobile {
     display: flex;
-    top: 0;
-    margin: 0;
-    padding: 0;
+    flex-flow: column;
+    align-items: center;
   }
 
   #lead {
@@ -434,26 +545,92 @@ hr {
     font-weight: 800;
   }
 
+  #productLead {
+    color: white;
+    font-size: 20pt;
+    font-weight: 800;
+  }
+
   #bannerButtons {
     display: none;
   }
 
   #productBox {
+    display: flex;
     width: 250px;
     height: 200px;
     background-color: #3d3d3d;
-    opacity: 0.8;
+    opacity: 1;
     background: repeating-linear-gradient( -45deg, #2b2b2b, #2b2b2b 1px, #191919 5px, #191919 25px );
     border: 1px solid rgba(255, 255, 255, 0.2);
     box-shadow: inset 0 0 200px #000;
-    margin-right: 0px;
     margin-top: 20px;
+    transform: scale(1);
+    transition: 1s;
+  }
+
+  #item {
+    width: 50%;
   }
 
   .products {
-    position: relative;
+    width: 100%;
+    height: 830px;
     display: flex;
-    flex-wrap: wrap;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 20px;
+  }
+
+  #priceTag {
+    position: absolute;
+    margin-top: 150px;
+    margin-left: 30px;
+    height: 30px;
+    width: 50px;
+    background-color: #ff2212;
+    font-weight: 600;
+    font-size: 16px;
+  }
+
+  #price {
+    margin-top: 4px;
+  }
+
+  #bgIntro {
+    display: none
+  }
+
+  #bgIntroMobile {
+    display: flex;
+    flex-flow: column;
+    height: 270px;
+    width: 100%;
+    background-image: url("../imgs/marketingimg.png");
+    background-size: cover;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #introBgText {
+    opacity: 0;
+    animation: slide 0.5s forwards;
+    transition: 1s;
+    left: 0;
+  }
+
+
+  @-webkit-keyframes slide {
+      0% { left: 100%; }
+  }
+
+  @keyframes slide {
+      0% { left: 100%; }
+  }
+
+  #footer {
+    display: none;
   }
 
   .footer {
@@ -474,7 +651,7 @@ hr {
     background-color: rgba(0, 0, 0, 0.3);
     width: 100%;
     color: white;
-    padding-bottom: 50px;
+    padding-bottom: 10px;
   }
 
   #copyrighttext {
